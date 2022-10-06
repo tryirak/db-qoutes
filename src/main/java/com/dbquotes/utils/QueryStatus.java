@@ -12,7 +12,7 @@ public enum QueryStatus {
     public String getText() {
         return switch(this) {
             case NO_CONNECTION -> "No connection.";
-            case UNKNOWN -> "Unknown error! .";
+            case UNKNOWN -> "Unknown error!";
             default -> throw new IllegalStateException("Unexpected value: " + this);
         };
     }
