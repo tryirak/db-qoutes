@@ -12,39 +12,42 @@
    <children>
       <PasswordField fx:id="passwordField" layoutX="78.0" layoutY="188.0" prefHeight="30.0" prefWidth="322.0" style="-fx-background-color: #686a77;">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
          <effect>
             <Blend />
          </effect></PasswordField>
       <TextField fx:id="loginField" layoutX="78.0" layoutY="122.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: #686a77;">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
          <effect>
             <Blend />
          </effect></TextField>
       <Button layoutX="78.0" layoutY="246.0" mnemonicParsing="false" onAction="#onSignInButtonClick" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #494b57;" text="Войти" textFill="#b7c2d4">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></Button>
       <Button layoutX="226.0" layoutY="245.0" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="32.0" prefWidth="174.0" style="-fx-background-color: #494b57;" text="Зарегистрироваться" textFill="#b7c2d4">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></Button>
       <Button layoutX="151.0" layoutY="294.0" mnemonicParsing="false" onAction="#onGuestButtonClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #494b57;" text="Войти как гость" textFill="#b7c2d4">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></Button>
-      <Label fx:id="messageLabel" alignment="BASELINE_CENTER" layoutX="78.0" layoutY="345.0" prefHeight="27.0" prefWidth="322.0" text="&lt;message&gt;" textAlignment="CENTER" textFill="#c3b1bd" wrapText="true" />
+      <Label fx:id="messageLabel" alignment="BASELINE_CENTER" layoutX="78.0" layoutY="345.0" prefHeight="27.0" prefWidth="322.0" text="&lt;message&gt;" textAlignment="CENTER" textFill="#c3b1bd" wrapText="true">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Label>
       <Label layoutX="78.0" layoutY="99.0" prefHeight="22.0" prefWidth="85.0" text="Логин" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Label>
       <Label layoutX="78.0" layoutY="165.0" text="Пароль" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Label>
       <AnchorPane layoutX="-2.0" prefHeight="83.0" prefWidth="466.0" style="-fx-background-color: #120d14;">

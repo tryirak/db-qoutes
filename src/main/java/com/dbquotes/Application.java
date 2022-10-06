@@ -39,7 +39,17 @@ public class Application extends javafx.application.Application {
     }
 
     public void showRegistrationWindow() {
-        System.out.println("Show registration window");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("registration.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            primaryStage.setTitle("Registration");
+            primaryStage.setScene(scene);
+            BaseController controller = fxmlLoader.getController();
+            controller.setAppFX(this);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showMainWindow() {

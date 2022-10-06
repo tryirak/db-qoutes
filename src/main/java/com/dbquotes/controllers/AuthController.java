@@ -44,7 +44,7 @@ public class AuthController extends BaseController {
         String password = passwordField.getText();
 
         if (login.length() == 0 || password.length() == 0)
-            messageLabel.setText("Please, fill the fields.");
+            messageLabel.setText("Пожалуйста, заполните поля.");
 
         QueryStatus queryStatus = user.auth(login, password);
         switch (queryStatus) {
@@ -52,7 +52,7 @@ public class AuthController extends BaseController {
                 user.parseCount();
                 rootApp.showMainWindow();
             }
-            case NO_ENTRY -> messageLabel.setText("Wrong login or password!");
+            case NO_ENTRY -> messageLabel.setText("Неверный логин или пароль!");
             default -> messageLabel.setText(queryStatus.getText());
         }
     }
