@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="439.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="454.0" prefWidth="866.0">
+         <children>
+            <AnchorPane prefHeight="81.0" prefWidth="520.0" style="-fx-background-color: #120d14;">
+               <children>
+                  <Label fx:id="headerLabel" alignment="BASELINE_CENTER" layoutX="229.0" layoutY="17.0" prefHeight="47.0" prefWidth="406.0" text="&lt;Create|Edit&gt;" textFill="#b7c2d4">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="154.0" prefWidth="867.0" style="-fx-background-color: #2e2e39;">
+               <children>
+                  <TextArea fx:id="quoteField" layoutX="55.0" layoutY="23.0" prefHeight="105.0" prefWidth="408.0" style="-fx-background-color: #686a77;" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Label layoutX="55.0" layoutY="6.0" text="Цитата" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="teacherField" layoutX="480.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></TextField>
+                  <TextField fx:id="subjectField" layoutX="663.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></TextField>
+                  <Label layoutX="480.0" layoutY="6.0" text="Преподаватель" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="663.0" layoutY="6.0" prefHeight="18.0" prefWidth="61.0" text="Предмет" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="481.0" layoutY="55.0" text="Дата" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+                  <DatePicker fx:id="dateField" layoutX="480.0" layoutY="72.0" prefHeight="25.0" prefWidth="168.0" />
+                  <Button layoutX="732.0" layoutY="104.0" mnemonicParsing="false" onAction="#onSaveButtonClick" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #494b57;" text="Сохранить" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="messageLabel" alignment="CENTER_RIGHT" layoutX="485.0" layoutY="111.0" prefHeight="18.0" prefWidth="239.0" text="&lt;message&gt;" textFill="RED">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="ownerLabel" alignment="BASELINE_LEFT" layoutX="666.0" layoutY="74.0" prefHeight="22.0" prefWidth="149.0" text="&lt;owner&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ownerPanel" prefHeight="237.0" prefWidth="867.0" style="-fx-background-color: #2e2e39;">
+               <children>
+                  <ListView fx:id="usersList" layoutX="75.0" layoutY="35.0" onMouseClicked="#onUserSelected" prefHeight="105.0" prefWidth="347.0" />
+                  <CheckBox fx:id="readChecker" layoutX="52.0" layoutY="157.0" mnemonicParsing="false" text="Чтение" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="editChecker" layoutX="145.0" layoutY="157.0" mnemonicParsing="false" text="Редактирование" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="deleteChecker" layoutX="287.0" layoutY="157.0" mnemonicParsing="false" text="Удаление" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Button layoutX="388.0" layoutY="155.0" mnemonicParsing="false" onAction="#onSetButtonClick" style="-fx-background-color: #494b57;" text="Применить" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="79.0" layoutY="14.0" text="Пользователи" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
