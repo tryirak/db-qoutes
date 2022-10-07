@@ -1,6 +1,6 @@
 package com.dbquotes.controllers;
 
-import com.dbquotes.models.User;
+import com.dbquotes.models.ApplicationUser;
 import com.dbquotes.utils.QueryStatus;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -50,7 +50,7 @@ public class RegistrationController extends BaseController {
             messageLabel.setText("Не используйте в пароли пробелы!");
 
         if (loginLengthCondition && passwordEnterCondition && notEmpty && passwordWithoutSpaces) {
-            QueryStatus queryStatus = User.createNewUser(loginField.getText(), passwordField.getText());
+            QueryStatus queryStatus = ApplicationUser.createNewUser(loginField.getText(), passwordField.getText());
             switch (queryStatus) {
                 case DONE -> rootApp.showAuthWindow();
                 case DUPLICATE -> messageLabel.setText("Данный логин уже занят! Выберите другой.");

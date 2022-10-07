@@ -25,8 +25,8 @@ public class AuthController extends BaseController {
 
     @FXML
     protected void onGuestButtonClick() {
-        user.reset();
-        QueryStatus queryStatus = user.authAsGuest();
+        applicationUser.reset();
+        QueryStatus queryStatus = applicationUser.authAsGuest();
         if (queryStatus == QueryStatus.DONE)
             rootApp.showMainWindow();
         else
@@ -46,10 +46,10 @@ public class AuthController extends BaseController {
         if (login.length() == 0 || password.length() == 0)
             messageLabel.setText("Пожалуйста, заполните поля.");
 
-        QueryStatus queryStatus = user.auth(login, password);
+        QueryStatus queryStatus = applicationUser.auth(login, password);
         switch (queryStatus) {
             case DONE -> {
-                user.parseCount();
+                applicationUser.parseCount();
                 rootApp.showMainWindow();
             }
             case NO_ENTRY -> messageLabel.setText("Неверный логин или пароль!");

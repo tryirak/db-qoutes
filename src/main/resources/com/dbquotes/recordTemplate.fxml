@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="1000.0" spacing="20.0" style="-fx-border-radius: 100; -fx-background-color: #2e2e39;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dbquotes.controllers.RecordController">
+    <children>
+        <Label fx:id="quoteLabel" alignment="BASELINE_CENTER" contentDisplay="TOP" prefHeight="70.0" prefWidth="605.0" style="-fx-background-color: #686a77;" text="«Цитата»" textAlignment="JUSTIFY" textFill="#b7c2d4" textOverrun="WORD_ELLIPSIS" wrapText="true">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+        </Label>
+        <VBox alignment="BASELINE_LEFT" prefHeight="70.0" prefWidth="125.0" spacing="10.0">
+            <children>
+                <Label fx:id="teacherLabel" text="Преподаватель" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="subjectLabel" accessibleText="34124324" text="Предмет" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+            <padding>
+                <Insets top="5.0" />
+            </padding>
+        </VBox>
+        <Label fx:id="dateLabel" text="00.00.0000" textFill="WHITE">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+            <HBox.margin>
+                <Insets bottom="25.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="ownerLabel" text="&lt;User&gt;" textFill="WHITE">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+            <padding>
+                <Insets bottom="25.0" left="20.0" />
+            </padding>
+        </Label>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="25.0" right="25.0" top="15.0" />
+    </padding>
+</HBox>
