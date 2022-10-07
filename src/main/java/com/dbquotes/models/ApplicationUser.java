@@ -2,6 +2,7 @@ package com.dbquotes.models;
 
 import com.dbquotes.utils.PasswordEncryptor;
 import com.dbquotes.utils.QueryStatus;
+import javafx.scene.control.Label;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -166,6 +167,24 @@ public class ApplicationUser {
             HandlerDB.closeConnection();
         }
         return moderatorsId;
+    }
+
+    public boolean validateUpdatedUserData(String login, String password, String repeatedPassword, Label messageLabel) {
+        boolean loginLengthCondition = login.length() < 256;
+        boolean passwordEnterCondition = password.equals(repeatedPassword);
+        boolean notEmpty = login.length() > 0 && password.length() > 0;
+        boolean passwordWithoutSpaces = !password.contains(" ") && !login.contains(" ");
+
+        if (!loginLengthCondition)
+            messageLabel.setText("Используйте пароль длинной меньше чем 256 символов.");
+        else if (!passwordEnterCondition)
+            messageLabel.setText("Повторите пароль правильно.");
+        else if (!notEmpty)
+            messageLabel.setText("Введите логин и пароль.");
+        else if (!passwordWithoutSpaces)
+            messageLabel.setText("Не используйте в пароли пробелы!");
+
+        return loginLengthCondition && passwordEnterCondition && notEmpty && passwordWithoutSpaces;
     }
 
     public void countUpdate(boolean add) {

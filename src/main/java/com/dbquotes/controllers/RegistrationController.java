@@ -34,22 +34,9 @@ public class RegistrationController extends BaseController {
     protected void onSignUpButtonClick() {
         String login = loginField.getText();
         String password = passwordField.getText();
+        String repeatedPassword = repeatPasswordField.getText();
 
-        boolean loginLengthCondition = login.length() < 256;
-        boolean passwordEnterCondition = password.equals(repeatPasswordField.getText());
-        boolean notEmpty = login.length() > 0 && password.length() > 0;
-        boolean passwordWithoutSpaces = !password.contains(" ") && !login.contains(" ");
-
-        if (!loginLengthCondition)
-            messageLabel.setText("Используйте пароль длинной меньше чем 256 символов.");
-        else if (!passwordEnterCondition)
-            messageLabel.setText("Повторите пароль правильно.");
-        else if (!notEmpty)
-            messageLabel.setText("Введите логин и пароль.");
-        else if (!passwordWithoutSpaces)
-            messageLabel.setText("Не используйте в пароли пробелы!");
-
-        if (loginLengthCondition && passwordEnterCondition && notEmpty && passwordWithoutSpaces) {
+        if (applicationUser.validateUpdatedUserData(login, password, repeatedPassword, messageLabel)){
             QueryStatus queryStatus = ApplicationUser.createNewUser(loginField.getText(), passwordField.getText());
             switch (queryStatus) {
                 case DONE -> rootApp.showAuthWindow();

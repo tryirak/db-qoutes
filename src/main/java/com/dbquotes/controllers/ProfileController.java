@@ -17,7 +17,7 @@ public class ProfileController extends BaseStageController {
     protected TextField repeatNewPasswordField;
 
     @FXML
-    protected Label messageText;
+    protected Label messageLabel;
 
     @FXML
     protected Label roleLabel;
@@ -34,34 +34,20 @@ public class ProfileController extends BaseStageController {
     protected void onSaveButtonClick() {
         String login = loginField.getText();
         String password = newPasswordField.getText();
+        String repeatedPassword = repeatNewPasswordField.getText();
 
-        boolean loginLengthCondition = login.length() < 256;
-        boolean passwordEnterCondition = !repeatNewPasswordField.equals(newPasswordField.getText());
-        boolean notEmpty = login.length() > 0 && password.length() > 0;
-        boolean passwordWithoutSpaces = !password.contains(" ") && !login.contains(" ");
-
-        if (!loginLengthCondition)
-            messageText.setText("Please, use login from 6 to 255 symbols.");
-        else if (!passwordEnterCondition)
-            messageText.setText("Please, repeat password carefully.");
-        else if (!notEmpty)
-            messageText.setText("Please, fill the fields.");
-        else if (!passwordWithoutSpaces)
-            messageText.setText("Please, don't use spaces.");
-
-        if (loginLengthCondition && passwordEnterCondition && notEmpty && passwordWithoutSpaces) {
+        if (applicationUser.validateUpdatedUserData(login, password, repeatedPassword, messageLabel)) {
             QueryStatus queryStatus = applicationUser.edit(loginField.getText(), newPasswordField.getText());
             switch (queryStatus) {
                 case DONE -> {
-                    messageText.setTextFill(Paint.valueOf("GREEN"));
-                    messageText.setText("Ваши данные были сохранены успешно!");
+                    messageLabel.setTextFill(Paint.valueOf("GREEN"));
+                    messageLabel.setText("Ваши данные были сохранены успешно!");
                     applicationUser.auth(loginField.getText(), newPasswordField.getText());
                     stage.close();
                     rootApp.getMainWindowController().update();
                 }
-                case DUPLICATE -> messageText.setText(
-                        "User with this login already exist! Please, use another one!.");
-                default -> messageText.setText(queryStatus.getText());
+                case DUPLICATE -> messageLabel.setText("Данный логин уже занят! Выберите другой.");
+                default -> messageLabel.setText(queryStatus.getText());
             }
         }
     }
