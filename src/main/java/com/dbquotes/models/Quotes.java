@@ -11,7 +11,7 @@ public class Quotes extends ArrayList<Quote> {
 
     public void parse(ApplicationUser applicationUser) {
         String query = "SELECT DISTINCT quotes.id as id, quote, teacher, subject, date, login as owner, " +
-                "IF(id_creator=?,true, op_read) as r, IF(id_creator=?, true, op_write) as w, IF(id_creator=?,true, op_delete) as d " +
+                "IF(id_creator=?, true, read_access) as r, IF(id_creator=?, true, write_access) as w, IF(id_creator=?, true, delete_access) as d " +
                 "FROM quotes INNER JOIN access INNER JOIN users ON quotes.id = access.id_quote AND users.id=quotes.id_creator " +
                 "WHERE id_creator=? OR id_user=?;";
 

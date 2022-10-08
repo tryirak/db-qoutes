@@ -9,7 +9,7 @@ import java.util.HashMap;
 public record Permissions(boolean r, boolean w, boolean d) {
     public static HashMap<User, Permissions> getPermissionsByRecordID(long id) {
         String query = "SELECT users.id as id, users.login as name, users.role as role, " +
-                "access.op_read as r, access.op_write as w, access.op_delete as d FROM access " +
+                "access.read_access as r, access.write_access as w, access.delete_access as d FROM access " +
                 "INNER JOIN users ON access.id_user=users.id WHERE id_quote=?;";
         HashMap<User, Permissions> userPermissionsHashMap = new HashMap<>();
 

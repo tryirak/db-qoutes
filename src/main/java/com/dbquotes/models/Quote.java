@@ -16,8 +16,8 @@ public record Quote(long id, String quote, String teacher, String subject,
 
     public QueryStatus deleteQuote(ApplicationUser applicationUser) {
         String queryCheckPermissions = "SELECT (SELECT id_creator=? FROM quotes WHERE id=?) OR " +
-                "(SELECT op_delete FROM access WHERE id_quote=? AND id_user=?);";
-        String queryDelete = "DELETE FROM quotes WHERE quotes.id=?;";
+                "(SELECT delete_access FROM access WHERE id_quote=? AND id_user=?);";
+        String queryDelete = "delete_access FROM quotes WHERE quotes.id=?;";
 
         try {
             Connection c = HandlerDB.getConnection();
@@ -52,7 +52,7 @@ public record Quote(long id, String quote, String teacher, String subject,
     public QueryStatus editQuote(String quote, String teacher, String subject, Date date, ApplicationUser applicationUser,
                                  HashMap<User, Permissions> usersPermissionsHashMap) {
         String queryCheckPermissions = "SELECT (SELECT id_creator=? FROM quotes WHERE id=?) OR " +
-                "(SELECT op_write FROM access WHERE id_quote=? AND id_user=?);";
+                "(SELECT write_access FROM access WHERE id_quote=? AND id_user=?);";
 
         String queryUpdateQuotes = "UPDATE quotes SET quote=?, teacher=?, subject=?, date=? WHERE id=?;";
 
@@ -60,7 +60,7 @@ public record Quote(long id, String quote, String teacher, String subject,
         queryUpdateAccessBuilder.append("(?, ?, ?, ?, ?),".repeat(usersPermissionsHashMap.size()));
         queryUpdateAccessBuilder.deleteCharAt(queryUpdateAccessBuilder.length()-1);
         queryUpdateAccessBuilder.append(" ON DUPLICATE KEY UPDATE " +
-                "op_read = VALUES(op_read), op_write = VALUES(op_write), op_delete=VALUES(op_delete);");
+                "read_access = VALUES(read_access), write_access = VALUES(write_access), delete_access=VALUES(delete_access);");
         String queryUpdateAccess = queryUpdateAccessBuilder.toString();
 
         try {
@@ -129,11 +129,11 @@ public record Quote(long id, String quote, String teacher, String subject,
 
         // Template for insert users permissions
         StringBuilder queryInsertUsersBuilder = new StringBuilder(
-                "INSERT INTO access (id_quote, id_user, op_read, op_write, op_delete) VALUES");
+                "INSERT INTO access (id_quote, id_user, read_access, write_access, delete_access) VALUES");
         queryInsertUsersBuilder.append("(?, ?, ?, ?, ?),".repeat(usersPermissionsHashMap.size()));
         queryInsertUsersBuilder.deleteCharAt(queryInsertUsersBuilder.length()-1);
         queryInsertUsersBuilder.append(" ON DUPLICATE KEY UPDATE " +
-                "op_read=VALUES(op_read), op_write=VALUES(op_write), op_delete=VALUES(op_delete);");
+                "read_access=VALUES(read_access), write_access=VALUES(write_access), delete_access=VALUES(delete_access);");
         String queryInsertUsers = queryInsertUsersBuilder.toString();
 
         try {
