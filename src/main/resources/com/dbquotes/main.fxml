@@ -12,7 +12,7 @@
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="815.0" prefWidth="1000.0" style="-fx-background-color: #2e2e39; -fx-border-color: #2e2e39;" vbarPolicy="NEVER">
          <content>
-            <VBox fx:id="recordContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="1000.0" spacing="5.0" style="-fx-background-color: #2e2e39;">
+            <VBox fx:id="recordContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1001.0" spacing="5.0" style="-fx-background-color: #2e2e39;">
             </VBox>
          </content>
       </ScrollPane>
@@ -23,22 +23,17 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="loginLabel" alignment="BASELINE_CENTER" layoutX="29.0" layoutY="58.0" prefHeight="23.0" prefWidth="67.0" text="&lt;login&gt;" textFill="#b7c2d4">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="editButton" layoutX="6.0" layoutY="100.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: #494b57;" text="Редактирование" textFill="#b7c2d4">
+            <Button fx:id="editButton" layoutX="16.0" layoutY="60.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: #494b57;" text="Редакт." textFill="#b7c2d4">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="createButton" layoutX="19.0" layoutY="215.0" mnemonicParsing="false" onAction="#onCreateButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #494b57;" text="Создать" textFill="#b7c2d4">
+            <Button fx:id="createButton" layoutX="19.0" layoutY="175.0" mnemonicParsing="false" onAction="#onCreateButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #494b57;" text="Создать" textFill="#b7c2d4">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="updateButton" layoutX="18.0" layoutY="143.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #494b57;" text="Обновить" textFill="#b7c2d4">
+            <Button fx:id="updateButton" layoutX="18.0" layoutY="103.0" mnemonicParsing="false" onAction="#onUpdateButtonClick" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #494b57;" text="Обновить" textFill="#b7c2d4">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -47,7 +42,7 @@
                <font>
                   <Font name="Arial" size="14.0" />
                </font></Label>
-            <Label fx:id="counterLabel" layoutX="31.0" layoutY="188.0" text="&lt;counter&gt;" textFill="#b7c2d4">
+            <Label fx:id="counterLabel" layoutX="31.0" layoutY="148.0" text="&lt;counter&gt;" textFill="#b7c2d4">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
@@ -57,7 +52,7 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="viewButton" layoutX="16.0" layoutY="101.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #494b57;" text="Просмотр" textFill="#b7c2d4" visible="false">
+            <Button fx:id="viewButton" layoutX="18.0" layoutY="61.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #494b57;" text="Просмотр" textFill="#b7c2d4" visible="false">
                <font>
                   <Font size="14.0" />
                </font>

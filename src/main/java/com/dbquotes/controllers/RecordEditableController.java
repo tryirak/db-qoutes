@@ -4,7 +4,7 @@ import com.dbquotes.Application;
 import com.dbquotes.models.ApplicationUser;
 import com.dbquotes.models.HandlerDB;
 import com.dbquotes.models.Quote;
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.QueryStatus;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package com.dbquotes.utils;
+package com.dbquotes.utility;
 
 public enum QueryStatus {
     DONE,

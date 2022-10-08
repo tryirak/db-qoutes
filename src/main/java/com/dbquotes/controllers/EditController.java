@@ -2,7 +2,7 @@ package com.dbquotes.controllers;
 
 import com.dbquotes.models.Permissions;
 import com.dbquotes.models.Quote;
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.QueryStatus;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 

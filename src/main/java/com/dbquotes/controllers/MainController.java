@@ -1,7 +1,7 @@
 package com.dbquotes.controllers;
 
 import com.dbquotes.models.*;
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.QueryStatus;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -22,9 +22,6 @@ public class MainController extends BaseController {
 
     @FXML
     protected VBox recordContainer;
-
-    @FXML
-    protected Label loginLabel;
 
     @FXML
     protected Label counterLabel;
@@ -103,7 +100,6 @@ public class MainController extends BaseController {
     public void initialize() {
         super.initialize();
 
-        loginLabel.setVisible(false);
         counterLabel.setVisible(false);
         messageLabel.setText("");
         createButton.setVisible(false);
@@ -112,10 +108,9 @@ public class MainController extends BaseController {
         viewButton.setVisible(false);
 
         if (applicationUser.getRole() != UserRole.GUEST) {
-            loginLabel.setText(applicationUser.getLogin());
-            loginLabel.setVisible(true);
             editButton.setVisible(true);
             profileButton.setVisible(true);
+            profileButton.setText(applicationUser.getLogin());
         }
     }
 
@@ -180,7 +175,7 @@ public class MainController extends BaseController {
     }
 
     protected void updateWithoutParsing() {
-        loginLabel.setText(applicationUser.getLogin());
+        profileButton.setText(applicationUser.getLogin());
         recordContainer.getChildren().clear();
         if (view) {
             showReadableQuotes();

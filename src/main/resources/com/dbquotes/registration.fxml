@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -45,6 +46,9 @@
                </font>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <Label fx:id="messageLabel" alignment="BASELINE_CENTER" layoutX="107.0" layoutY="396.0" prefHeight="58.0" prefWidth="331.0" text="&lt;message&gt;" textFill="#c3b1bd" wrapText="true">
          <font>

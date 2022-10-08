@@ -1,7 +1,7 @@
 package com.dbquotes.controllers;
 
 import com.dbquotes.models.ApplicationUser;
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.QueryStatus;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

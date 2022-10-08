@@ -4,88 +4,68 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="389.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dbquotes.controllers.ProfileController">
+<AnchorPane prefHeight="389.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dbquotes.controllers.ProfileController">
    <children>
-      <VBox prefHeight="391.0" prefWidth="350.0">
+      <AnchorPane prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #120d14;">
          <children>
-            <AnchorPane prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #120d14;">
-               <children>
-                  <Label layoutX="116.0" layoutY="9.0" text="Профиль" textAlignment="CENTER" textFill="#b7c2d4">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;">
-               <children>
-                  <Label layoutX="71.0" layoutY="14.0" text="Новый логин" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="loginField" layoutX="71.0" layoutY="33.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;">
-               <children>
-                  <Label layoutX="71.0" layoutY="14.0" text="Новый пароль" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="newPasswordField" layoutX="71.0" layoutY="30.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </PasswordField>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;">
-               <children>
-                  <Label layoutX="71.0" layoutY="14.0" text="Повторите новый пароль" textFill="WHITE">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="repeatNewPasswordField" layoutX="71.0" layoutY="30.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </PasswordField>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="89.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;">
-               <children>
-                  <Button layoutX="94.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSaveButtonClick" style="-fx-background-radius: 25; -fx-background-color: #494b57;" text="Сохранить изменения" textFill="#b7c2d4">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="messageLabel" alignment="BASELINE_CENTER" layoutX="89.0" layoutY="50.0" prefHeight="30.0" prefWidth="173.0" textFill="#c3b1bd">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font></Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="62.0" prefWidth="350.0" style="-fx-background-color: #2e2e39;">
-               <children>
-                  <Label fx:id="roleLabel" alignment="BASELINE_CENTER" layoutX="89.0" layoutY="13.0" prefHeight="33.0" prefWidth="175.0" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font name="Arial Black" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
+            <Label layoutX="116.0" layoutY="9.0" text="Профиль" textAlignment="CENTER" textFill="#b7c2d4">
+               <font>
+                  <Font name="Arial" size="28.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <Label layoutX="71.0" layoutY="93.0" text="Новый логин" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="loginField" layoutX="72.0" layoutY="110.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="73.0" layoutY="141.0" text="Новый пароль" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="newPasswordField" layoutX="72.0" layoutY="158.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="94.0" layoutY="251.0" mnemonicParsing="false" onAction="#onSaveButtonClick" style="-fx-background-radius: 25; -fx-background-color: #494b57;" text="Сохранить изменения" textFill="#b7c2d4">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="messageLabel" alignment="BASELINE_CENTER" layoutX="88.0" layoutY="326.0" prefHeight="30.0" prefWidth="173.0" textFill="#c3b1bd">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="roleLabel" alignment="BASELINE_CENTER" layoutX="88.0" layoutY="292.0" prefHeight="33.0" prefWidth="175.0" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="73.0" layoutY="195.0" text="Повторите новый пароль" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="repeatNewPasswordField" layoutX="71.0" layoutY="212.0" prefHeight="25.0" prefWidth="207.0" style="-fx-background-color: #686a77;">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>

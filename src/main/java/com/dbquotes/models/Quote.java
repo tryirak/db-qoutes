@@ -1,6 +1,6 @@
 package com.dbquotes.models;
 
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.QueryStatus;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -32,7 +33,7 @@
          <font>
             <Font name="Arial" size="14.0" />
          </font></Button>
-      <Button layoutX="151.0" layoutY="294.0" mnemonicParsing="false" onAction="#onGuestButtonClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #494b57;" text="Войти как гость" textFill="#b7c2d4">
+      <Button layoutX="76.0" layoutY="291.0" mnemonicParsing="false" onAction="#onGuestButtonClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #494b57;" text="Войти как гость" textFill="#b7c2d4">
          <font>
             <Font name="Arial" size="14.0" />
          </font></Button>
@@ -58,6 +59,9 @@
                </font>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
    </children>
 </AnchorPane>

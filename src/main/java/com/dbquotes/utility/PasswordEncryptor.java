@@ -1,4 +1,4 @@
-package com.dbquotes.utils;
+package com.dbquotes.utility;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

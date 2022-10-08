@@ -1,7 +1,7 @@
 package com.dbquotes.models;
 
-import com.dbquotes.utils.PasswordEncryptor;
-import com.dbquotes.utils.QueryStatus;
+import com.dbquotes.utility.PasswordEncryptor;
+import com.dbquotes.utility.QueryStatus;
 import javafx.scene.control.Label;
 
 import java.sql.Connection;
@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Map;
 
 // Singleton pattern
 public class ApplicationUser {
@@ -91,7 +90,7 @@ public class ApplicationUser {
             Connection c = HandlerDB.getConnection();
             PreparedStatement p = c.prepareStatement(query);
             p.setString(1, newLogin);
-            p.setString(2, com.dbquotes.utils.PasswordEncryptor.encrypt(newPassword));
+            p.setString(2, com.dbquotes.utility.PasswordEncryptor.encrypt(newPassword));
             p.setLong(3, id);
             p.executeUpdate();
             return QueryStatus.DONE;
@@ -114,7 +113,7 @@ public class ApplicationUser {
             Connection c = HandlerDB.getConnection();
             PreparedStatement p = c.prepareStatement(query);
             p.setString(1, login);
-            p.setString(2, com.dbquotes.utils.PasswordEncryptor.encrypt(password));
+            p.setString(2, com.dbquotes.utility.PasswordEncryptor.encrypt(password));
             p.executeUpdate();
             return QueryStatus.DONE;
         } catch (SQLException e) {
