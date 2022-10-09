@@ -206,6 +206,6 @@ public class MainController extends FrameController {
     protected void updateCount() {
         if (!view)
             counterLabel.setVisible(true);
-        counterLabel.setText(String.format("count: %d", applicationUser.getCount()));
+        counterLabel.setText(String.format("Кол-во: %d", applicationUser.getCount()));
     }
 }

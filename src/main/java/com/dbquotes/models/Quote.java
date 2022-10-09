@@ -119,8 +119,6 @@ public record Quote(long id, String quote, String teacher, String subject,
         if (applicationUser.getRole() == UserRole.GUEST)
             return QueryStatus.NOPERMISSIONS;
 
-        ArrayList<Long> moderatorsId = applicationUser.getModerators();
-
         // Insert quote to Quotes
         String queryInsertQuote = "INSERT INTO quotes(quote, teacher, subject, date, id_creator) VALUES (?, ?, ?, ?, ?);";
 
@@ -164,13 +162,11 @@ public record Quote(long id, String quote, String teacher, String subject,
                 for (Map.Entry<User, Permissions> set: usersPermissionsHashMap.entrySet()) {
                     User user = set.getKey();
                     Permissions permission = set.getValue();
-                    if (user.role() != UserRole.SUPERUSER && !moderatorsId.contains(user.id())) {
-                        pAccess.setLong(i++, id);
-                        pAccess.setLong(i++, user.id());
-                        pAccess.setBoolean(i++, permission.r());
-                        pAccess.setBoolean(i++, permission.w());
-                        pAccess.setBoolean(i++, permission.d());
-                    }
+                    pAccess.setLong(i++, id);
+                    pAccess.setLong(i++, user.id());
+                    pAccess.setBoolean(i++, permission.r());
+                    pAccess.setBoolean(i++, permission.w());
+                    pAccess.setBoolean(i++, permission.d());
                 }
                 pAccess.executeUpdate();
             }
