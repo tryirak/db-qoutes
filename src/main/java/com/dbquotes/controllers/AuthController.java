@@ -52,7 +52,7 @@ public class AuthController extends BaseController {
                 applicationUser.parseCount();
                 rootApp.showMainWindow();
             }
-            case NO_ENTRY -> messageLabel.setText("Неверный логин или пароль!");
+            case EMPTY -> messageLabel.setText("Неверный логин или пароль!");
             default -> messageLabel.setText(queryStatus.getText());
         }
     }

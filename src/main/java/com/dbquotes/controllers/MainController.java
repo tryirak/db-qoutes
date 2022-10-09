@@ -62,7 +62,7 @@ public class MainController extends BaseController {
             messageLabel.setText("");
             rootApp.showCreateWindow();
         } catch (SQLException e) {
-            QueryStatus queryStatus = e.getSQLState().equals("08S01") ? QueryStatus.NO_CONNECTION : QueryStatus.UNKNOWN;
+            QueryStatus queryStatus = e.getSQLState().equals("08S01") ? QueryStatus.NOCONNECTION : QueryStatus.UNKNOWN;
             messageLabel.setText(queryStatus.getText());
         }
     }

@@ -17,7 +17,7 @@ public record Quote(long id, String quote, String teacher, String subject,
     public QueryStatus deleteQuote(ApplicationUser applicationUser) {
         String queryCheckPermissions = "SELECT (SELECT id_creator=? FROM quotes WHERE id=?) OR " +
                 "(SELECT delete_access FROM access WHERE id_quote=? AND id_user=?);";
-        String queryDelete = "delete_access FROM quotes WHERE quotes.id=?;";
+        String queryDelete = "DELETE FROM quotes WHERE quotes.id=?;";
 
         try {
             Connection c = HandlerDB.getConnection();
@@ -31,17 +31,17 @@ public record Quote(long id, String quote, String teacher, String subject,
             ResultSet result = pPermission.executeQuery();
             result.next();
             if (result.getString(1).equals("NULL"))
-                return QueryStatus.NO_ENTRY;
+                return QueryStatus.EMPTY;
             if (result.getBoolean(1))
                 pDelete.executeUpdate();
             else
-                return QueryStatus.NO_PERMISSIONS;
+                return QueryStatus.NOPERMISSIONS;
 
             return QueryStatus.DONE;
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 default -> QueryStatus.UNKNOWN;
             };
         } finally {
@@ -78,7 +78,7 @@ public record Quote(long id, String quote, String teacher, String subject,
             boolean flag = result.getBoolean(1);
 
             if (!flag)
-                return QueryStatus.NO_PERMISSIONS;
+                return QueryStatus.NOPERMISSIONS;
 
             pQuotes.setString(1, quote);
             pQuotes.setString(2, teacher);
@@ -105,7 +105,7 @@ public record Quote(long id, String quote, String teacher, String subject,
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 case "42000" -> QueryStatus.CUSTOM;
                 default -> QueryStatus.UNKNOWN;
             };
@@ -117,7 +117,7 @@ public record Quote(long id, String quote, String teacher, String subject,
     public static QueryStatus createQuote(String quote, String teacher, String subject, Date date, ApplicationUser applicationUser,
                                           HashMap<User, Permissions> usersPermissionsHashMap) {
         if (applicationUser.getRole() == UserRole.GUEST)
-            return QueryStatus.NO_PERMISSIONS;
+            return QueryStatus.NOPERMISSIONS;
 
         ArrayList<Long> moderatorsId = applicationUser.getModerators();
 
@@ -160,8 +160,6 @@ public record Quote(long id, String quote, String teacher, String subject,
                 result.next();
                 long id = result.getLong("id");
 
-                System.out.println(queryInsertUsers);
-
                 int i = 1;
                 for (Map.Entry<User, Permissions> set: usersPermissionsHashMap.entrySet()) {
                     User user = set.getKey();
@@ -180,7 +178,7 @@ public record Quote(long id, String quote, String teacher, String subject,
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 default -> QueryStatus.UNKNOWN;
             };
         } finally {

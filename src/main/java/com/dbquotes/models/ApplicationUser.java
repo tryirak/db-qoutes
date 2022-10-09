@@ -45,14 +45,14 @@ public class ApplicationUser {
                 this.login = login;
                 this.role = UserRole.getRole(result.getString("role"));
             } else
-                return QueryStatus.NO_ENTRY;
+                return QueryStatus.EMPTY;
 
             result.close();
             return QueryStatus.DONE;
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 default -> QueryStatus.UNKNOWN;
             };
         } finally {
@@ -75,7 +75,7 @@ public class ApplicationUser {
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 default -> QueryStatus.UNKNOWN;
             };
         } finally {
@@ -97,7 +97,7 @@ public class ApplicationUser {
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 case "23000" -> QueryStatus.DUPLICATE;
                 default -> QueryStatus.UNKNOWN;
             };
@@ -119,7 +119,7 @@ public class ApplicationUser {
         } catch (SQLException e) {
             e.printStackTrace();
             return switch (e.getSQLState()) {
-                case "08S01" -> QueryStatus.NO_CONNECTION;
+                case "08S01" -> QueryStatus.NOCONNECTION;
                 case "23000" -> QueryStatus.DUPLICATE;
                 default -> QueryStatus.UNKNOWN;
             };

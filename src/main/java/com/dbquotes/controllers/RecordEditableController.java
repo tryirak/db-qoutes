@@ -37,7 +37,7 @@ public class RecordEditableController extends RecordController {
             messageLabel.setText("");
             rootApp.showEditWindow(quote);
         } catch (SQLException e) {
-            QueryStatus queryStatus = e.getSQLState().equals("08S01") ? QueryStatus.NO_CONNECTION : QueryStatus.UNKNOWN;
+            QueryStatus queryStatus = e.getSQLState().equals("08S01") ? QueryStatus.NOCONNECTION : QueryStatus.UNKNOWN;
             messageLabel.setText(queryStatus.getText());
         }
     }
@@ -52,7 +52,7 @@ public class RecordEditableController extends RecordController {
                 if (quote.owner().equals(applicationUser.getLogin()))
                     rootApp.getMainWindowController().deleteQuoteEvent(quote);
             }
-            case NO_PERMISSIONS -> {
+            case NOPERMISSIONS -> {
                 messageLabel.setText("У тебя нет прав для этой операции.");
                 rootApp.getMainWindowController().update();
             }

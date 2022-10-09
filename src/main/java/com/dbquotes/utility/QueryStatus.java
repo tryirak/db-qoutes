@@ -2,16 +2,16 @@ package com.dbquotes.utility;
 
 public enum QueryStatus {
     DONE,
-    NO_CONNECTION,
+    NOCONNECTION,
     DUPLICATE,
-    NO_ENTRY,
+    EMPTY,
     UNKNOWN,
     CUSTOM,
-    NO_PERMISSIONS;
+    NOPERMISSIONS;
 
     public String getText() {
         return switch(this) {
-            case NO_CONNECTION -> "No connection.";
+            case NOCONNECTION -> "No connection.";
             case UNKNOWN -> "Unknown error!";
             default -> throw new IllegalStateException("Unexpected value: " + this);
         };
