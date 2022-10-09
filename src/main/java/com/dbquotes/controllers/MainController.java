@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class MainController extends BaseController {
+public class MainController extends FrameController {
 
     protected Quotes quotes = null;
     protected boolean view = true;

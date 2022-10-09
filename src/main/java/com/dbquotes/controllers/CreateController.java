@@ -10,7 +10,7 @@ import java.util.Date;
 import java.time.ZoneId;
 import java.util.HashMap;
 
-public class CreateController extends BaseStageController {
+public class CreateController extends FrameController {
 
     protected Users allUsers;
     protected HashMap<User, Permissions> usersPermissionsHashMap = new HashMap<>();

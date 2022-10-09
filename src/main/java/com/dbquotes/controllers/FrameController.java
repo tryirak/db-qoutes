@@ -3,8 +3,10 @@ package com.dbquotes.controllers;
 import com.dbquotes.Application;
 import com.dbquotes.models.ApplicationUser;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
-public abstract class BaseController {
+public abstract class FrameController {
+    protected Stage stage;
     protected Application rootApp;
     protected ApplicationUser applicationUser;
 
@@ -15,5 +17,9 @@ public abstract class BaseController {
 
     public void setAppFX(Application rootApp) {
         this.rootApp = rootApp;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

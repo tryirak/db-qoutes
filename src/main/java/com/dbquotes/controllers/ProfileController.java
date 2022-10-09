@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
 
-public class ProfileController extends BaseStageController {
+public class ProfileController extends FrameController {
     @FXML
     protected TextField loginField;
 

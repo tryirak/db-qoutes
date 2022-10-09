@@ -32,7 +32,7 @@ public class Application extends javafx.application.Application {
             Scene scene = new Scene(fxmlLoader.load());
             primaryStage.setTitle("Authentication");
             primaryStage.setScene(scene);
-            BaseController controller = fxmlLoader.getController();
+            FrameController controller = fxmlLoader.getController();
             controller.setAppFX(this);
             primaryStage.show();
         } catch (IOException e) {
@@ -46,7 +46,7 @@ public class Application extends javafx.application.Application {
             Scene scene = new Scene(fxmlLoader.load());
             primaryStage.setTitle("Registration");
             primaryStage.setScene(scene);
-            BaseController controller = fxmlLoader.getController();
+            FrameController controller = fxmlLoader.getController();
             controller.setAppFX(this);
             primaryStage.show();
         } catch (IOException e) {
@@ -78,7 +78,7 @@ public class Application extends javafx.application.Application {
             extraStage.setResizable(false);
             extraStage.setTitle("Profile");
             extraStage.setScene(scene);
-            BaseStageController controller = fxmlLoader.getController();
+            FrameController controller = fxmlLoader.getController();
             controller.setAppFX(this);
             controller.setStage(extraStage);
             extraStage.show();
