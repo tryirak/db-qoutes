@@ -18,6 +18,9 @@ public class ApplicationUser {
     private static ApplicationUser instance;
     private int count = 0;
 
+    private ApplicationUser(){
+
+    }
     public static ApplicationUser getInstance() {
         if (instance == null)
             instance = new ApplicationUser();
